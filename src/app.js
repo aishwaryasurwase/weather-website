@@ -2,10 +2,9 @@ const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
 
-
 const forecast = require('./utils/forecast');
 const geocode = require('./utils/geocode');
-
+const port = process.env.PORT  || 3000;
 const app = express();
 const partialsPath = path.join(__dirname + '../../templates/partials');
 
@@ -69,6 +68,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log("Connected to web server");
+app.listen(port, () => {
+    console.log("Connected to web server, "+ port);
 });
